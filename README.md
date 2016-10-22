@@ -26,7 +26,7 @@ You should now have all the theme files under
 
     /your/site/grav/user/themes/knowledge-base
 
->> NOTE: This theme is a modular component for Grav which requires the [CMS itself](http://github.com/getgrav/grav) and the following plugins to properly function as written (you can of course modify the theme once installed):
+*NOTE:* This theme is a modular component for Grav which requires the [CMS itself](http://github.com/getgrav/grav) and the following plugins to properly function as written (you can of course modify the theme once installed):
 
   * [Error](https://github.com/getgrav/grav-theme-error) 
   * [Problems](https://github.com/getgrav/grav-plugin-problems)
