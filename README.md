@@ -2,7 +2,7 @@
 
 ![](screenshot.jpg)
 
-This is a basic theme for a knowledge base for [Grav CMS](http://getgrav.org). It is minimal by design and is easy to customize.
+This is a basic theme for a knowledge base for [Grav CMS](http://getgrav.org). It is minimal by design and is easy to customize. It is based on [Yahoo's Pure.css framework](http://purecss.io/).
 
 ## Installation
 
