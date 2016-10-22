@@ -1,7 +1,7 @@
 name: Knowledge Base
 version: 1.0.0
 description: A theme for a knowledge base or FAQ
-icon: rebel
+icon: database
 author:
   name: Aaron Dalton
   email: aaron@daltons.ca
