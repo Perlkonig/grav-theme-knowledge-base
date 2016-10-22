@@ -5,8 +5,8 @@
 {% set rows=[] %}
 {% set node=[] %}
 {% set maxrows = 3 %}
-{% if config.site.params.front.maxrows is defined %}
-	{% set maxrows = config.site.params.front.maxrows %}
+{% if config.themes['knowledge-base'].params.front.maxrows is defined %}
+	{% set maxrows = config.themes['knowledge-base'].params.front.maxrows %}
 {% endif %}
 {% for cat in taxonomy.taxonomy["category"]|keys|sort|slice(0,maxrows*2) %}
 	{% set node = node|merge([cat]) %}
@@ -17,8 +17,8 @@
 {% endfor %}
 
 {% set maxcount = 5 %}
-{% if config.site.params.front.maxentries is defined %}
-	{% set maxcount = config.site.params.front.maxentries %}
+{% if config.themes['knowledge-base'].params.front.maxentries is defined %}
+	{% set maxcount = config.themes['knowledge-base'].params.front.maxentries %}
 {% endif %}
 <section id="articlelist">
 	<div class="pure-g">

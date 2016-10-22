@@ -8,15 +8,15 @@
 </div>
 
 {% set maxcount = 5 %}
-{% if config.site.params.sidebar.maxentries is defined %}
-    {% set maxcount = config.site.params.sidebar.maxentries %}
+{% if config.themes['knowledge-base'].params.sidebar.maxentries is defined %}
+    {% set maxcount = config.themes['knowledge-base'].params.sidebar.maxentries %}
 {% endif %}
 <div class="topiclist">
 	{% set counts = config.plugins['count-views'].counts|sort|reverse %}
 	{% set popular = [] %}
     {% set homeroute = '/home' %}
-    {% if config.site.params.articleroot is defined %}
-        {% set homeroute = config.site.params.articleroot %}
+    {% if config.themes['knowledge-base'].params.articleroot is defined %}
+        {% set homeroute = config.themes['knowledge-base'].params.articleroot %}
     {% endif %}
 	{% for route,views in counts %}
 		{% if route starts with homeroute %}
