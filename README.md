@@ -8,7 +8,7 @@ This is a basic theme for a knowledge base for [Grav CMS](http://getgrav.org). I
 
 Installing the Knowledge Base theme can be done in one of two ways. The GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file. 
 
-The theme by itself is useful, but you may have an easier time getting up and running by installing the skeleton. The Knowledge Base skeleton can be found `HERE`, which is a complete site with the theme itself, required plugins and configuration, and sample content.
+The theme by itself is useful, but you may have an easier time getting up and running by installing the skeleton. [The Knowledge Base skeleton](https://github.com/Perlkonig/grav-skeleton-knowledge-base) is a complete site with the theme itself, required plugins and configuration, and sample content.
 
 ### GPM Installation (Preferred)
 
@@ -134,7 +134,7 @@ The following templates are available:
 
 ### Structure
 
-Hopefully you're working with [the skeleton packge that contains all the sample content](). If not, at least have a look at that repository so you can follow along.
+Hopefully you're working with [the skeleton packge that contains all the sample content](https://github.com/Perlkonig/grav-skeleton-knowledge-base). If not, at least have a look at that repository so you can follow along.
 
 The theme expects three routes under the `user/pages` folder:
 
