@@ -1,6 +1,6 @@
 # Knowledge Base Theme
 
-[![](thumbnail.jpg)](screenshot.jpg)
+![](screenshot.jpg)
 
 This is a basic theme for a knowledge base for [Grav CMS](http://getgrav.org).
 
@@ -20,7 +20,7 @@ This will install the Knowledge Base theme into your `/user/themes` directory wi
 
 ### Manual Installation
 
-To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `knowledge-base`. You can find these files either on [GitHub](https://github.com/getgrav/grav-theme-knowledge-base) or via [GetGrav.org](http://getgrav.org/downloads/themes).
+To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `knowledge-base`. You can find these files either on [GitHub](https://github.com/Perlkonig/grav-theme-knowledge-base) or via [GetGrav.org](http://getgrav.org/downloads/themes).
 
 You should now have all the theme files under
 
@@ -30,11 +30,10 @@ You should now have all the theme files under
 
   * [Error](https://github.com/getgrav/grav-theme-error) 
   * [Problems](https://github.com/getgrav/grav-plugin-problems)
-  * [Count Views](https://github.com/Perlkonig/grav-plugin-count-views)
-  * [Reading Time](https://github.com/getgrav/grav-plugin-readingtime)
-  * [reCAPTCHA Contact](https://github.com/aradianoff/recaptchacontact)
-  * [Related Pages](https://github.com/getgrav/grav-plugin-relatedpages)
   * [Simple Search](https://github.com/getgrav/grav-plugin-simplesearch)
+  * [Count Views](https://github.com/Perlkonig/grav-plugin-count-views) (for the "Popular Articles" sidebar)
+  * [Reading Time](https://github.com/getgrav/grav-plugin-readingtime) (for displaying the reading time at the top of each article)
+  * [Related Pages](https://github.com/getgrav/grav-plugin-relatedpages) (for the "Related Articles" section at the bottom of each article)
 
 ## Updating
 
@@ -53,7 +52,7 @@ This command will check your Grav install to see if your Knowledge Base theme is
 Manually updating Knowledge Base is pretty simple. Here is what you will need to do to get this done:
 
 * Delete the `your/site/user/themes/knowledge-base` directory.
-* Download the new version of the Knowledge Base theme from either [GitHub](https://github.com/getgrav/grav-plugin-knowledge-base) or [GetGrav.org](http://getgrav.org/downloads/themes#extras).
+* Download the new version of the Knowledge Base theme from either [GitHub](https://github.com/Perlkonig/grav-plugin-knowledge-base) or [GetGrav.org](http://getgrav.org/downloads/themes).
 * Unzip the zip file in `your/site/user/themes` and rename the resulting folder to `knowledge-base`.
 * Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in terminal and typing `bin/grav clear-cache`.
 
@@ -61,9 +60,113 @@ Manually updating Knowledge Base is pretty simple. Here is what you will need to
 
 ## Customizing
 
-## Configuration
+To modify or customize this theme, you must first do two things:
 
-## Usage
+1. Copy `user/themes/knowledge-base/knowledge-base.yaml` to `/user/config/themes/knowledge-base.yaml`.
+
+2. [Read and follow the documentation on theme inheritance](https://learn.getgrav.org/themes/customization#theme-inheritance). 
+
+Following these instructions is the only way to ensure that your changes are not lost when the theme gets updated.
+
+### Configuration
+
+This theme can be configured in two places: `user/config/themes/knowledge-base.yaml` and `user/config/site.yaml`.
+
+#### `knowledge-base.yaml`
+
+Here is the default configuration, which commented to explain what the different settings do:
+
+```yaml
+params:
+  articleroot: /home  # the route where the articles themselves live
+  front:              # params for the front page content
+    maxrows: 3        # the maximum number of rows on the front page
+    maxentries: 5     # maximum number of articles displayed for each category
+  sidebar:            # params for the sidebar
+    maxentries: 5     # maximum number of articles to display in "Popular" and "Latest" sections
+```
+
+#### `site.yaml`
+
+Your `site.yaml` must specify three taxonomies: 
+
+```yaml
+taxonomies: [category,tag,author]
+```
+
+The only theme-specific customization looked for here is the text for the footer. You can change the footer without touching the templates by adding something like the following to `user/config/site.yaml`:
+
+```yaml
+footertext: |
+	<p>
+		First footer line.
+	</p>
+	<p>
+		Here's a second.
+	</p>
+```
+
+### CSS
+
+The template loads `theme://css/custom.css` if it exists. The simplest way to customize the CSS is to create this file in your inherited theme and add what styles you need. This way the base `css/knowledge-base.css` can be updated without losing your customizations.
+
+### Templates
+
+To override templates, simply copy the file from the base theme into the same place in your inherited theme and edit as desired. If you configured your inheritied theme correctly, the Grav system will first look for files in your inherited theme. If it's not present, it will pull the file from the base theme.
+
+## Content
+
+### Templates
+
+The following templates are available:
+
+  * `author` is used for displaying information about an author and articles they have authored.
+
+  * `default` is a blank template that just dumps a page's content.
+
+  * `error` is used for displaying error messages. 
+
+  * `front` is only used for generating the front page. The front page is organzed by the `category` taxonomy.
+
+  * `item` is used for an article.
+
+  * `taxonomy` is used to display articles by taxonomy (i.e., category, tag, author).
+
+### Structure
+
+Hopefully you're working with [the skeleton packge that contains all the sample content](). If not, at least have a look at that repository so you can follow along.
+
+The theme expects three routes under the `user/pages` folder:
+
+  * `/home` (or whatever was specified in `user/config/themes/knowledge-base.yaml` as `articleroot`)
+
+    This is where all the knowlege base articles live. Each article should have its own folder containing an `item.md` file. There are a few prerequisites for the page front matter:
+
+      * It must contain a `title` field.
+      * It must contain an explicit `date` field representing the published date.
+      * It must have at least one `category` assigned for it to appear on the front page. `tag` is completely optional. `author` is recommended. Multiple values are supported in any taxonomy.
+
+    Two different icons are currently supported. By default, all articles are marked with a "text" icon. If the article contains media (usually video), then add `media: video` to the front matter. The "video" icon should then be used.
+
+  * `/taxonomy`
+
+    This is where users can get lists of articles by taxonomy. The `taxonomy.md` file can be titled in any way you wish, and it is recommended that caching be disabled. If no query parameters are passed, then it will display a list of known taxonomies. If a taxonomy is passed via the `name` parameter, then it will list valid values for that taxonomy. If the taxonomy value is also passed (via the `val` parameter), then a list of *all* articles matching that specific taxonomy will be listed.
+
+    A note about authors: If a specific author page exists (see `/authors` route below), then the author's name will link to it. If no such page exists, then a generic list of articles will be generated.
+
+  * '/authors'
+
+    This folder should contain a top-level page that contains the following front matter:
+
+    ```yaml
+    redirect: taxonomy?name=author
+    ```
+
+    All other content and headers will be ignored.
+
+    The folder should then contain folders for each author (optional). The slug is determined by the built-in `hyphenize` twig filter. Each of those folders should contain an `author.md` file. The template will create an initial heading, dump the page content (including images), and then follow with a list of articles this person authored. If no such folder exists, then the `/taxonomy` page will create a simple list of articles written by that author.
+
+The sample content also shows a "Contact Us" page that you will need to configure yourself.
 
 ## Credits
 
