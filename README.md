@@ -26,7 +26,7 @@ You should now have all the theme files under
 
     /your/site/grav/user/themes/knowledge-base
 
-*NOTE:* This theme is a modular component for Grav which requires the [CMS itself](http://github.com/getgrav/grav) and the following plugins to properly function as written (you can of course modify the theme once installed):
+**NOTE:** This theme is a modular component for Grav which requires the [CMS itself](http://github.com/getgrav/grav) and the following plugins to properly function as written (you can of course modify the theme once installed):
 
   * [Error](https://github.com/getgrav/grav-theme-error) 
   * [Problems](https://github.com/getgrav/grav-plugin-problems)
@@ -74,7 +74,7 @@ This theme can be configured in two places: `user/config/themes/knowledge-base.y
 
 #### `knowledge-base.yaml`
 
-Here is the default configuration, which commented to explain what the different settings do:
+Here is the default configuration, which is commented to explain what the different settings do:
 
 ```yaml
 params:
@@ -94,7 +94,7 @@ Your `site.yaml` must specify three taxonomies:
 taxonomies: [category,tag,author]
 ```
 
-The only theme-specific customization looked for here is the text for the footer. You can change the footer without touching the templates by adding something like the following to `user/config/site.yaml`:
+The only theme-specific customization looked for here is the text for the footer. You can change the footer text without touching the templates by adding something like the following to `user/config/site.yaml`:
 
 ```yaml
 footertext: |
@@ -154,7 +154,7 @@ The theme expects three routes under the `user/pages` folder:
 
     A note about authors: If a specific author page exists (see `/authors` route below), then the author's name will link to it. If no such page exists, then a generic list of articles will be generated.
 
-  * '/authors'
+  * `/authors`
 
     This folder should contain a top-level page that contains the following front matter:
 
@@ -164,7 +164,7 @@ The theme expects three routes under the `user/pages` folder:
 
     All other content and headers will be ignored.
 
-    The folder should then contain folders for each author (optional). The slug is determined by the built-in `hyphenize` twig filter. Each of those folders should contain an `author.md` file. The template will create an initial heading, dump the page content (including images), and then follow with a list of articles this person authored. If no such folder exists, then the `/taxonomy` page will create a simple list of articles written by that author.
+    The folder should then contain folders for each author (optional). The slug is determined by the built-in `hyphenize` twig filter. Each of those folders should contain an `author.md` file. *The page's front matter must include an `author` field containing the properly capitalized and spaced name of the author.* The template will create an initial heading, dump the page content (including images), and then follow with a list of articles this person authored. If no such folder exists, then the `/taxonomy` page will create a simple list of articles written by that author.
 
 The sample content also shows a "Contact Us" page that you will need to configure yourself.
 
