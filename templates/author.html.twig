@@ -1,0 +1,11 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<h1>Author: {{ page.header.author }}</h1>
+	{{ page.content }}	
+
+	<h2>All posts by this author</h2>
+	{% include 'partials/authorposts.html.twig' with {'author': page.header.author} %}
+{% endblock %}
+
+

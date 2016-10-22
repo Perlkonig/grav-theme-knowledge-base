@@ -1,0 +1,34 @@
+<div>
+    <h1><span>Categories</span></h1>
+    <ul style="padding-left: 1rem">
+    {% for cat in taxonomy.taxonomy["category"]|keys|sort %}
+    	<li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% set maxcount = 5 %}
+{% if config.site.params.sidebar.maxentries is defined %}
+    {% set maxcount = config.site.params.sidebar.maxentries %}
+{% endif %}
+<div class="topiclist">
+	{% set counts = config.plugins['count-views'].counts|sort|reverse %}
+	{% set popular = [] %}
+    {% set homeroute = '/home' %}
+    {% if config.site.params.articleroot is defined %}
+        {% set homeroute = config.site.params.articleroot %}
+    {% endif %}
+	{% for route,views in counts %}
+		{% if route starts with homeroute %}
+			{% set popular = popular|merge([page.find(route)]) %}
+		{% endif %}
+	{% endfor %}
+	<h1><span>Popular Articles</span></h1>
+    {% include 'partials/topiclist.html.twig' with {'articles': popular, 'maxcount': maxcount} %}
+</div>
+
+<div class="topiclist">
+	<h1><span>Latest Articles</span></h1>
+    {% set articles = page.find('/home').children.order('date', 'desc').slice(0,maxcount) %}
+    {% include 'partials/topiclist.html.twig' with {'articles': articles, 'maxcount': maxcount} %}
+</div>

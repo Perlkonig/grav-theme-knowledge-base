@@ -1,0 +1,14 @@
+name: Knowledge Base
+version: 1.0.0
+description: A theme for a knowledge base or FAQ
+icon: rebel
+author:
+  name: Aaron Dalton
+  email: aaron@daltons.ca
+homepage: https://github.com/Perlkonig/grav-theme-knowledge-base
+demo: http://demo.yoursite.com
+keywords: grav, theme, faq, knowledge base, responsive, css3, html5, purecss
+bugs: https://github.com/Perlkonig/grav-theme-knowledge-base/issues
+readme: https://github.com/Perlkonig/grav-theme-knowledge-base/blob/master/README.md
+license: MIT
+

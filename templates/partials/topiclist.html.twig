@@ -1,0 +1,14 @@
+{% if maxcount is not defined %}
+    {% set maxcount = (articles|length) + 1 %}
+{% endif %}
+<ul>
+{% for p in articles|slice(0,maxcount) %}
+    {% if p.header.media == 'video' %}
+    <li class="video">
+    {% else %}
+    <li class="text">
+    {% endif %}
+        <a href="{{p.url}}">{{ p.title|e }}</a>
+    </li>
+{% endfor %}
+</ul>

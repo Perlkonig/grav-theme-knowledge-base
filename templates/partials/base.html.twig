@@ -1,0 +1,96 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+        {% do assets.addCss('https://fonts.googleapis.com/css?family=Inconsolata|Lato') %}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css', 100) %}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css', 99) %}
+        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 95) %}
+        {% do assets.addCss('theme://css/knowledge-base.css', 90) %}
+        {% do assets.addCss('theme://css/custom.css', 80) %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        {% do assets.addJs('jquery', 100) %}
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head%}
+</head>
+<body id="top" class="{{ page.header.body_classes }}">
+
+<div class="pure-g wrapper">
+{% block header %}
+    <div class="header">
+    <div class="pure-u-1 pure-u-md-2-5">
+        <div class="padding">
+            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
+                <i class="fa fa-rebel"></i>
+                {{ config.site.title }}
+            </a>
+        </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-3-5">
+        <div class="padding">
+            {% block header_navigation %}
+            <nav class="pure-menu pure-menu-horizontal">
+                {% include 'partials/navigation.html.twig' %}
+            </nav>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="pure-u-1 search">
+        <div class="padding">
+            {% include 'partials/simplesearch_searchbox.html.twig' %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+<div class="pure-u-1 pure-u-md-16-24">
+{% block body %}
+    <section id="body">
+        <div class="padding">
+        {% block content %}{% endblock %}
+        </div>
+    </section>
+{% endblock %}
+</div> <!-- pure-u-16-24 -->
+
+<div class="pure-u-1 pure-u-md-8-24">
+{% block sidebar %}
+    <section id="sidebar">
+        <div class="padding">
+            {% include 'partials/sidebar.html.twig' %}
+        </div>
+    </section>
+{% endblock %}
+</div> <!-- pure-u-8-24 -->
+
+<div class="pure-u-1">
+{% block footer %}
+    <div class="footer text-center">
+        <p><a href="">This theme</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    </div>
+{% endblock %}
+</div> <!-- pure-u-1 -->
+
+</div> <!-- pure-g -->
+
+{% block bottom %}
+    {{ assets.js('bottom') }}
+{% endblock %}
+</body>

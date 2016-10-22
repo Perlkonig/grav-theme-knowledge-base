@@ -1,0 +1,13 @@
+<section class="topiclist">
+    <ul>
+    {% for p in taxonomy.findTaxonomy({'author': author}).order('date', 'desc') %}
+        {% if p.header.media == 'video' %}
+        <li class="video">
+        {% else %}
+        <li class="text">
+        {% endif %}
+            <a href="{{p.url}}">{{ p.title|e }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</section>

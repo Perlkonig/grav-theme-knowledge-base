@@ -1,0 +1,5 @@
+{% set articles = taxonomy.findTaxonomy({'category': category}) %}
+<section class="topiclist">
+    <h2>{{ category|e }} <span class="count">({{ articles|length }})</span></h2>
+    {% include 'partials/topiclist.html.twig' with {'articles': articles, 'maxcount': maxcount} %}
+</section>

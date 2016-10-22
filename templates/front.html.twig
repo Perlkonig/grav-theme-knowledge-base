@@ -1,0 +1,38 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+{% set rows=[] %}
+{% set node=[] %}
+{% set maxrows = 3 %}
+{% if config.site.params.front.maxrows is defined %}
+	{% set maxrows = config.site.params.front.maxrows %}
+{% endif %}
+{% for cat in taxonomy.taxonomy["category"]|keys|sort|slice(0,maxrows*2) %}
+	{% set node = node|merge([cat]) %}
+	{% if node|length == 2 %}
+		{% set rows = rows|merge([node]) %}
+		{% set node = [] %}
+	{% endif %}
+{% endfor %}
+
+{% set maxcount = 5 %}
+{% if config.site.params.front.maxentries is defined %}
+	{% set maxcount = config.site.params.front.maxentries %}
+{% endif %}
+<section id="articlelist">
+	<div class="pure-g">
+		<div class="pure-u-1">
+			<h1>Article Categories</h1>
+		</div>
+{% for row in rows %}
+	{% for cat in row %}
+		<div class="pure-u-1 pure-u-md-1-2 frontrow">
+			{% include 'partials/frontlist.html.twig' with {'category': cat, 'maxcount': maxcount} %}
+		</div>
+	{% endfor %}
+{% endfor %}
+	</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,188 @@
+/* Core Stuff */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#top {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #606d6e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #454B4D;
+}
+
+a {
+    color: #1F8CD6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #175E91;
+}
+
+pre {
+    background: #F0F0F0;
+    margin: 1rem 0;
+    border-radius: 2px;
+    font-family: 'Inconsolata', monospace;
+}
+
+code {
+    font-family: 'Inconsolata', monospace;
+}
+
+blockquote {
+    border-left: 10px solid #eee;
+    margin: 0;
+    padding: 0 2rem;
+}
+
+/* Utility Classes */
+.wrapper {
+    margin: 0 3rem;
+}
+
+.padding {
+    padding: 3rem 1rem;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right
+}
+
+.rightpad {
+    padding-right: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+/* Content Styling */
+.header .padding {
+    padding: 1rem 0;
+}
+
+/*.header {
+    background-color: #1F8DD6;
+    color: #eee;
+}
+
+.header a {
+    color: #fff;
+}
+*/
+.header .logo {
+    font-size: 1.7rem;
+    /*text-transform: uppercase;*/
+}
+
+.footer {
+    padding: 1rem 0;
+    background-color: #eee;
+}
+
+/* Font Family */
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: 'Lato', sans-serif;
+}
+
+.topiclist .count {
+    font-weight: normal;
+    font-size: smaller;
+    padding-left: 0.25rem;
+}
+
+.topiclist ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.topiclist li.text:before {
+    content: "\f0f6";
+    font-family: FontAwesome;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 0.5rem;
+}
+
+.topiclist li.video:before {
+    content: "\f1c8";
+    font-family: FontAwesome;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 0.5rem;
+}
+
+/*.topiclist h2:before {
+    content: "\f114";
+    font-family: FontAwesome;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: -2rem;
+}
+*/
+
+#sidebar h1 {
+    font-size: 1.25rem;
+}
+
+.frontrow {
+    border-top: #eee solid 1px;
+}
+
+#sidebar h1 {
+    border-bottom: 3px double #eee;
+    line-height: 0;
+    padding-top: 1em;
+}
+
+#sidebar h1 span {
+    background: #fff;
+    padding-right: 0.5em;
+}
+
+.header .search {
+    background: #eee;
+    padding: 1em;
+}
+
+section.header .details {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 0.5em 0;
+    font-size: smaller;
+}
+
+section.header .details span {
+    padding-right: 1rem;
+}
