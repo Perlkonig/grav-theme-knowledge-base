@@ -1,5 +1,5 @@
 name: Knowledge Base
-version: 1.0.0
+version: 1.0.1
 description: A theme for a knowledge base or FAQ
 icon: database
 author:
@@ -12,3 +12,10 @@ bugs: https://github.com/Perlkonig/grav-theme-knowledge-base/issues
 readme: https://github.com/Perlkonig/grav-theme-knowledge-base/blob/master/README.md
 license: MIT
 
+dependencies:
+  - error
+  - problems
+  - relatedpages
+  - simplesearch
+  - readingtime
+  - count-views
