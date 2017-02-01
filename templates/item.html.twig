@@ -48,13 +48,13 @@
     	{% endif %}
 		{% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
     	<div class="related topiclist">
-    		<h2>Related Articles</h2>
+    		<h2>{{ 'RELATED_ARTICLES'|t }}Related Articles</h2>
 		    {% include 'partials/relatedpages.html.twig' %}
     	</div>
 		{% endif %}    		
     </section>
     <section class="comments">
-    	<h2>Comments</h2>
+    	<h2>{{ 'COMMENTS'|t }}</h2>
     </section>
 </article>
 {% endblock %}
