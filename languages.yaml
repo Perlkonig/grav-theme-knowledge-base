@@ -1,0 +1,24 @@
+en:
+    FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">This theme</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    CATEGORIES: Categories
+    POPULAR_ARTICLES: Popular Articles
+    LATEST_ARTICLES: Latest Articles
+    AUTHOR: "Author:"
+    ALL_AUTHOR_POSTS: All posts by this author
+    ERROR: Error!
+    ARTICLE_CATEGORIES: Article Categories
+    RELATED_ARTICLES: Related Articles
+    COMMENTS: Comments
+    CATEGORY: "Category:"
+cs:
+    FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">Tento motiv</a> byl <i class="fa fa-code"></i>-án s <i class="fa fa-heart"></i> uživatelem <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    CATEGORIES: Kategorie
+    POPULAR_ARTICLES: Oblíbené články
+    LATEST_ARTICLES: Poslední články
+    AUTHOR: "Autor:"
+    ALL_AUTHOR_POSTS: Všechny autorovy články
+    ERROR: Chyba!
+    ARTICLE_CATEGORIES: Kategorie článků
+    RELATED_ARTICLES: Související články
+    COMMENTS: Komentáře
+    CATEGORY: "Kategorie:"

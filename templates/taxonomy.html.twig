@@ -9,7 +9,7 @@
         {% if taxname == 'category' %}
             {% if taxval %}
                 <section class="topiclist">
-                    <h1>Category: {{ taxval }}</h1>
+                    <h1>{{ 'CATEGORY'|t }} {{ taxval }}</h1>
                     {% include 'partials/topiclist.html.twig' with {'articles': taxonomy.findTaxonomy({(taxname): taxval})} %}
                 </section>
             {% else %}
