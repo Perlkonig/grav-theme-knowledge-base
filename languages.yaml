@@ -22,3 +22,15 @@ cs:
     RELATED_ARTICLES: Související články
     COMMENTS: Komentáře
     CATEGORY: "Kategorie:"
+cn:
+    FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">This theme</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    CATEGORIES: 分类
+    POPULAR_ARTICLES: 热门文章
+    LATEST_ARTICLES: 最新文章
+    AUTHOR: "作者："
+    ALL_AUTHOR_POSTS: 该作者所有文章
+    ERROR: 错误！
+    ARTICLE_CATEGORIES: 文章分类
+    RELATED_ARTICLES: 相关文章
+    COMMENTS: 评论
+    CATEGORY: "分类："
