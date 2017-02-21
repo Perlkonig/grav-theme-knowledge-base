@@ -1,3 +1,17 @@
+# v1.1.1
+##  02/21/2017
+
+1. [](#new)
+    * Simplified Chinese tranlsation added. Thanks, @lazyyz!
+
+# v1.1.0
+##  02/19/2017
+
+1. [](#new)
+    * Theme now configured to allow for translations
+    * Czech translation added
+    * Many thanks to @rbukovansky for these changes!
+
 # v1.0.1
 ##  11/05/2016
 
