@@ -78,12 +78,22 @@ Here is the default configuration, which is commented to explain what the differ
 
 ```yaml
 params:
-  articleroot: /home  # the route where the articles themselves live
+  articles:
+    root: /home       # the route where the articles themselves live
+    show:             # if all are set to false, the article header is removed
+      date: true      # show article date in the article header
+      authors: true   # show article authors in the article header
+      topics: true    # show assigned topics in the article header
+      time: true      # show reading time in the article header
   front:              # params for the front page content
     maxrows: 3        # the maximum number of rows on the front page
     maxentries: 5     # maximum number of articles displayed for each category
   sidebar:            # params for the sidebar
     maxentries: 5     # maximum number of articles to display in "Popular" and "Latest" sections
+    show:               # if all are set to false, the sidebar is removed
+      categories: true  # show Category list in the sidebar
+      popular: true     # show the Popular Articles sidebar
+      latest: true      # show the Latest Articles sidebar
 ```
 
 #### `site.yaml`

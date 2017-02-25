@@ -1,3 +1,4 @@
+{% if config.themes['knowledge-base'].params.sidebar.show.categories %}
 <div>
     <h1><span>{{ 'CATEGORIES'|t }}</span></h1>
     <ul style="padding-left: 1rem">
@@ -6,17 +7,23 @@
     {% endfor %}
     </ul>
 </div>
+{% endif %}
 
 {% set maxcount = 5 %}
 {% if config.themes['knowledge-base'].params.sidebar.maxentries is defined %}
     {% set maxcount = config.themes['knowledge-base'].params.sidebar.maxentries %}
 {% endif %}
+
+{% if config.themes['knowledge-base'].params.sidebar.show.popular %}
 <div class="topiclist">
 	{% set counts = config.plugins['count-views'].counts|sort|reverse %}
 	{% set popular = [] %}
     {% set homeroute = '/home' %}
     {% if config.themes['knowledge-base'].params.articleroot is defined %}
         {% set homeroute = config.themes['knowledge-base'].params.articleroot %}
+    {% endif %}
+    {% if config.themes['knowledge-base'].params.articles.root is defined %}
+        {% set homeroute = config.themes['knowledge-base'].params.articles.root %}
     {% endif %}
 	{% for route,views in counts %}
 		{% if route starts with homeroute %}
@@ -26,9 +33,12 @@
 	<h1><span>{{ 'POPULAR_ARTICLES'|t }}</span></h1>
     {% include 'partials/topiclist.html.twig' with {'articles': popular, 'maxcount': maxcount} %}
 </div>
+{% endif %}
 
+{% if config.themes['knowledge-base'].params.sidebar.show.latest %}
 <div class="topiclist">
 	<h1><span>{{ 'LATEST_ARTICLES'|t }}</span></h1>
     {% set articles = page.find('/home').children.order('date', 'desc').slice(0,maxcount) %}
     {% include 'partials/topiclist.html.twig' with {'articles': articles, 'maxcount': maxcount} %}
 </div>
+{% endif %}

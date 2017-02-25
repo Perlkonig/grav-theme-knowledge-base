@@ -11,8 +11,12 @@
 	        {% endif %}
 			{{ page.title|e }}
 		</h1>
+	{% if (config.themes['knowledge-base'].params.articles.show.date) or (config.themes['knowledge-base'].params.articles.show.authors) or (config.themes['knowledge-base'].params.articles.show.topics) or (config.themes['knowledge-base'].params.articles.show.time) %}
 		<div class="details">
+		{% if config.themes['knowledge-base'].params.articles.show.date %}
 			<span>{{ page.date|date("F j, Y") }}</span>
+		{% endif %}
+		{% if config.themes['knowledge-base'].params.articles.show.authors %}
 			{% set authorlist = [] %}
 			{% for author in page.taxonomy['author'] %}
                 {# Check to see if a dedicated author page exists #}
@@ -25,13 +29,19 @@
                 {% endif %}
 			{% endfor %}
 			<span><i class="fa fa-user"></i> {{ authorlist|join(', ') }}</span>
+		{% endif %}
+		{% if config.themes['knowledge-base'].params.articles.show.topics %}
 			{% set catlist = [] %}
 			{% for cat in page.taxonomy.category %}
 				{% set catlist = catlist|merge(['<a href="'~base_url~'/taxonomy?name=category&amp;val='~(cat|url_encode)~'">'~cat~'</a>']) %}
 			{% endfor %}
 			<span>{{ catlist|join(', ') }}</span>
+		{% endif %}
+		{% if config.themes['knowledge-base'].params.articles.show.time %}
 			<span>{{ page.content|readingtime }}</span>
+		{% endif %}
 		</div>
+	{% endif %}
 	</section>
 	<section class="content">
     	{{ page.content }}

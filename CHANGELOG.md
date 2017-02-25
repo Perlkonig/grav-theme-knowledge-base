@@ -1,3 +1,10 @@
+# v1.2.0
+##  02/25/2017
+
+1. [](#new)
+    * Made various components of the sidebar and article display optional. If all components of a specific unit are hidden, then the entire unit is hidden.
+    * The config variable `params:articleroot` is now deprecated. Use `params:articles:root` instead. Backwards compatibility will be removed at the next major release.
+
 # v1.1.1
 ##  02/21/2017
 
