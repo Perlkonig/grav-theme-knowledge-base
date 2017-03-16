@@ -1,6 +1,6 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 {% set showsidebar = false %}
-{% if (config.themes['knowledge-base'].params.sidebar.show.popular) or (config.themes['knowledge-base'].params.sidebar.show.popular) or (config.themes['knowledge-base'].params.sidebar.show.popular) %}
+{% if (config.themes['knowledge-base'].params.sidebar.show.categories) or (config.themes['knowledge-base'].params.sidebar.show.popular) or (config.themes['knowledge-base'].params.sidebar.show.latest) %}
     {% set showsidebar = true %}
 {% endif %}
 <!DOCTYPE html>
