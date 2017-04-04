@@ -45,6 +45,11 @@
 	</section>
 	<section class="content">
     	{{ page.content }}
+        <p></p>
+        {% for image in page.media.images %}
+           {{ image.cropResize(700, 400).html("title", "alt", "itemscreenshot") }}
+        {% endfor %}
+
     </section>
     <section class="foot">
     	{% if page.taxonomy.tag|length > 0 %}
