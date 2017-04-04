@@ -1,3 +1,9 @@
+# v1.2.1
+##  04/04/2017
+
+1. [](#new)
+    * Some styling refinements. Thanks, @rapsli!
+
 # v1.2.0
 ##  02/25/2017
 
