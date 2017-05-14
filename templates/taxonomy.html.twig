@@ -2,6 +2,18 @@
 
 {% block content %}
 
+{% set catlist = taxonomy.taxonomy["category"]|keys %}
+{% if config.themes['knowledge-base'].params.articles.blacklist is defined %}
+    {% set blist = config.themes['knowledge-base'].params.articles.blacklist %}
+    {% set tmplst = [] %}
+    {% for cat in catlist %}
+        {% if cat not in blist %}
+            {% set tmplst = tmplst|merge([cat]) %}
+        {% endif %}
+    {% endfor %}
+    {% set catlist = tmplst %}
+{% endif %}
+
     {% set taxname = uri.query('name') %}
     {% set taxval = uri.query('val') %}
 
@@ -16,7 +28,7 @@
                 <section>
                     <h1>Categories</h1>
                     <ul>
-                    {% for cat in taxonomy.taxonomy["category"]|keys|sort %}
+                    {% for cat in catlist|sort %}
                         <li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
                     {% endfor %}
                     </ul>

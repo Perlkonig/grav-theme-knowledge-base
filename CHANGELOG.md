@@ -1,3 +1,9 @@
+# v1.3.0
+##  05/14/2017
+
+1. [](#new)
+    * Added `params:articles:blacklist` setting to allow you to omit categories.
+
 # v1.2.1
 ##  04/04/2017
 

@@ -2,15 +2,27 @@
 
 {% block content %}
 
+{% set catlist = taxonomy.taxonomy["category"]|keys %}
+{% if config.themes['knowledge-base'].params.articles.blacklist is defined %}
+	{% set blist = config.themes['knowledge-base'].params.articles.blacklist %}
+	{% set tmplst = [] %}
+	{% for cat in catlist %}
+		{% if cat not in blist %}
+			{% set tmplst = tmplst|merge([cat]) %}
+		{% endif %}
+	{% endfor %}
+	{% set catlist = tmplst %}
+{% endif %}
+
 {% set rows=[] %}
 {% set node=[] %}
 {% set maxrows = 3 %}
 {% if config.themes['knowledge-base'].params.front.maxrows is defined %}
 	{% set maxrows = config.themes['knowledge-base'].params.front.maxrows %}
 {% endif %}
-{% for cat in taxonomy.taxonomy["category"]|keys|sort|slice(0,maxrows*2) %}
+{% for cat in catlist|sort|slice(0,maxrows*2) %}
 	{% set node = node|merge([cat]) %}
-	{% if node|length == 2 %}
+	{% if (node|length == 2) or (loop.last) %}
 		{% set rows = rows|merge([node]) %}
 		{% set node = [] %}
 	{% endif %}

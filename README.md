@@ -79,7 +79,8 @@ Here is the default configuration, which is commented to explain what the differ
 ```yaml
 params:
   articles:
-    root: /home       # the route where the articles themselves live
+    root: /home                # the route where the articles themselves live
+    blacklist: ['scratch']     # list of categories to ignore
     show:             # if all are set to false, the article header is removed
       date: true      # show article date in the article header
       authors: true   # show article authors in the article header
@@ -95,6 +96,8 @@ params:
       popular: true     # show the Popular Articles sidebar
       latest: true      # show the Latest Articles sidebar
 ```
+
+**Notes on `params:articles:blacklist`:** Any articles containing a blacklisted category will not appear on the front page, in the sidebar, or in the list of articles by a given author. 
 
 #### `site.yaml`
 

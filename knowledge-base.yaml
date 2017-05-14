@@ -4,7 +4,8 @@ dropdown:
 
 params:
   articles:
-    root: /home       # the route where the articles themselves live
+    root: /home                # the route where the articles themselves live
+    blacklist: ['scratch']     # list of categories to ignore
     show:
       date: true      # show article date in the article header
       authors: true   # show article authors in the article header
