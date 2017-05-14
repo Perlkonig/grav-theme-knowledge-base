@@ -1,4 +1,4 @@
-{% set articles = taxonomy.findTaxonomy({'category': category}) %}
+{% set articles = taxonomy.findTaxonomy({'category': category}).order('title') %}
 <section class="topiclist">
     <h2><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat|e }}</a> <span class="count">({{ articles|length }})</span></h2>
     {% include 'partials/topiclist.html.twig' with {'articles': articles, 'maxcount': maxcount} %}

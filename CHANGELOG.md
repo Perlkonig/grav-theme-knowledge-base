@@ -1,3 +1,9 @@
+# v1.3.1
+##  05/14/2017
+
+1. [](#bugfix)
+    * Pages now sort as was originally intended.
+
 # v1.3.0
 ##  05/14/2017
 
