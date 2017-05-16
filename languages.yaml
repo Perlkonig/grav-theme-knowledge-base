@@ -34,3 +34,15 @@ zh-CN:
     RELATED_ARTICLES: 相关文章
     COMMENTS: 评论
     CATEGORY: "分类："
+pl:
+    FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">Ten szablon</a> został <i class="fa fa-code"></i> z <i class="fa fa-heart"></i> przez <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    CATEGORIES: Kategorie
+    POPULAR_ARTICLES: Popularne artykuły
+    LATEST_ARTICLES: Ostatnie artykuły
+    AUTHOR: "Autor:"
+    ALL_AUTHOR_POSTS: Wszystkie posty tego autora
+    ERROR: Błąd!
+    ARTICLE_CATEGORIES: Kategorie artykułów
+    RELATED_ARTICLES: Powiązane artykuły
+    COMMENTS: Komentarze
+    CATEGORY: "Kategoria:"
