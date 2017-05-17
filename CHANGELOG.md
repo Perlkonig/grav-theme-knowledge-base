@@ -1,3 +1,9 @@
+# v1.3.2
+##  05/17/2017
+
+1. [](#new)
+    * Polish translation added thanks to @AvantaR.
+
 # v1.3.1
 ##  05/14/2017
 
