@@ -11,6 +11,14 @@
     {% set catlist = tmplst %}
 {% endif %}
 
+{% set homeroute = '/home' %}
+{% if config.themes['knowledge-base'].params.articleroot is defined %}
+    {% set homeroute = config.themes['knowledge-base'].params.articleroot %}
+{% endif %}
+{% if config.themes['knowledge-base'].params.articles.root is defined %}
+    {% set homeroute = config.themes['knowledge-base'].params.articles.root %}
+{% endif %}
+
 {% if config.themes['knowledge-base'].params.sidebar.show.categories %}
 <div>
     <h1><span>{{ 'CATEGORIES'|t }}</span></h1>
@@ -31,16 +39,12 @@
 <div class="topiclist">
 	{% set counts = config.plugins['count-views'].counts|sort|reverse %}
 	{% set popular = [] %}
-    {% set homeroute = '/home' %}
-    {% if config.themes['knowledge-base'].params.articleroot is defined %}
-        {% set homeroute = config.themes['knowledge-base'].params.articleroot %}
-    {% endif %}
-    {% if config.themes['knowledge-base'].params.articles.root is defined %}
-        {% set homeroute = config.themes['knowledge-base'].params.articles.root %}
-    {% endif %}
 	{% for route,views in counts %}
 		{% if route starts with homeroute %}
-			{% set popular = popular|merge([page.find(route)]) %}
+            {% set thispage = page.find(route) %}
+            {% if thispage is not null %}
+			    {% set popular = popular|merge([thispage]) %}
+            {% endif %}
 		{% endif %}
 	{% endfor %}
     {% set tmplst = [] %}
@@ -64,7 +68,7 @@
 {% if config.themes['knowledge-base'].params.sidebar.show.latest %}
 <div class="topiclist">
 	<h1><span>{{ 'LATEST_ARTICLES'|t }}</span></h1>
-    {% set articles = page.find('/home').children.order('date', 'desc') %}
+    {% set articles = page.find(homeroute).children.order('date', 'desc') %}
     {% set tmplst = [] %}
     {% for page in articles %}
         {% set blisted = false %}

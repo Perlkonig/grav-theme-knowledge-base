@@ -1,3 +1,10 @@
+# v1.3.3
+##  06/22/2017
+
+1. [](#bugfix)
+    * The "Popular Articles" sidebar now actually ignores deleted pages.
+    * The "Latest Articles" sidebar fixed to respect `articles.root`.
+
 # v1.3.2
 ##  05/17/2017
 
