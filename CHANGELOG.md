@@ -1,3 +1,12 @@
+# v1.3.4
+## 04/12/2018
+
+1. [](#bugfix)
+    * Added a check for the `published` header, thanks to @hctagalong.
+
+1. [](#new)
+    * Spanish and Galican translations added, thanks to @lucasvieites.
+
 # v1.3.3
 ##  06/22/2017
 
