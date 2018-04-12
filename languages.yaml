@@ -46,3 +46,27 @@ pl:
     RELATED_ARTICLES: Powiązane artykuły
     COMMENTS: Komentarze
     CATEGORY: "Kategoria:"
+es:
+    FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">Este tema</a> ha sido <i class="fa fa-code"></i> con <i class="fa fa-heart"></i> por <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    CATEGORIES: Categorías
+    POPULAR_ARTICLES: Artículos
+    LATEST_ARTICLES: Artículos más nuevos
+    AUTHOR: "Autor:"
+    ALL_AUTHOR_POSTS: Todos los artículos de este autor
+    ERROR: Error!
+    ARTICLE_CATEGORIES: Categorías de artículos
+    RELATED_ARTICLES: Artículos relacionados
+    COMMENTS: Comentarios
+    CATEGORY: "Categoría:"
+gl:
+    FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">Este tema</a> foi <i class="fa fa-code"></i> con <i class="fa fa-heart"></i> por <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    CATEGORIES: Categorías
+    POPULAR_ARTICLES: Artigos
+    LATEST_ARTICLES: Artigos máis novos
+    AUTHOR: "Autor:"
+    ALL_AUTHOR_POSTS: Tódolos artigos deste autor
+    ERROR: Erro!
+    ARTICLE_CATEGORIES: Categorías de artigos
+    RELATED_ARTICLES: Artigos relacionados
+    COMMENTS: Comentarios
+    CATEGORY: "Categoría:"
