@@ -73,9 +73,10 @@
     {% for page in articles %}
         {% set blisted = false %}
         {% for bcat in blist %}
-            {% if bcat in page.taxonomy["category"] %}
-                {% set blisted = true %}
-            {% endif %}
+          {% if bcat in page.taxonomy["category"] or (page.header.published is defined and not page.header.published) %}
+          {# Setting this to blacklisted when the category is in the blacklist OR if the page isn't yet published #}
+            {% set blisted = true %}
+          {% endif %}
         {% endfor %}
         {% if not blisted %}
             {% set tmplst = tmplst|merge([page]) %}
