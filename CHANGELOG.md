@@ -1,3 +1,9 @@
+# v1.3.5
+## 04/24/2018
+
+1. [](#bugfix)
+    * Fixed duplicate "Related Articles" heading on the article page, thanks to @sebasvisser.
+
 # v1.3.4
 ## 04/12/2018
 
