@@ -37,7 +37,7 @@
 
 {% if config.themes['knowledge-base'].params.sidebar.show.popular %}
 <div class="topiclist">
-	{% set counts = config.plugins['count-views'].counts|sort|reverse %}
+	{% set counts = viewcounts|sort|reverse %}
 	{% set popular = [] %}
 	{% for route,views in counts %}
 		{% if route starts with homeroute %}

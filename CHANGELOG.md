@@ -1,3 +1,9 @@
+# v1.3.6
+## 07/17/2018
+
+1. [](#bugfix)
+    * Now works with the latest version of the `count-views` plugin.
+
 # v1.3.5
 ## 04/24/2018
 
