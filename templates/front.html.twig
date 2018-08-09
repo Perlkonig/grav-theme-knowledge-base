@@ -3,8 +3,8 @@
 {% block content %}
 
 {% set catlist = taxonomy.taxonomy["category"]|keys %}
-{% if config.themes['knowledge-base'].params.articles.blacklist is defined %}
-	{% set blist = config.themes['knowledge-base'].params.articles.blacklist %}
+{% if grav.theme.config.params.articles.blacklist is defined %}
+	{% set blist = grav.theme.config.params.articles.blacklist %}
 	{% set tmplst = [] %}
 	{% for cat in catlist %}
 		{% if cat not in blist %}
@@ -17,8 +17,8 @@
 {% set rows=[] %}
 {% set node=[] %}
 {% set maxrows = 3 %}
-{% if config.themes['knowledge-base'].params.front.maxrows is defined %}
-	{% set maxrows = config.themes['knowledge-base'].params.front.maxrows %}
+{% if grav.theme.config.params.front.maxrows is defined %}
+	{% set maxrows = grav.theme.config.params.front.maxrows %}
 {% endif %}
 {% for cat in catlist|sort|slice(0,maxrows*2) %}
 	{% set node = node|merge([cat]) %}
@@ -29,8 +29,8 @@
 {% endfor %}
 
 {% set maxcount = 5 %}
-{% if config.themes['knowledge-base'].params.front.maxentries is defined %}
-	{% set maxcount = config.themes['knowledge-base'].params.front.maxentries %}
+{% if grav.theme.config.params.front.maxentries is defined %}
+	{% set maxcount = grav.theme.config.params.front.maxentries %}
 {% endif %}
 <section id="articlelist">
 	<div class="pure-g">

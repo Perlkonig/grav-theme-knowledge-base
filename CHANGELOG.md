@@ -1,3 +1,10 @@
+# v2.0.0
+## 08/09/2018
+
+1. [](#new)
+    * **This update is not necessarily backwards compatible!** If you have used theme inheritance to customize this theme, please carefully read the "Updating" section of the docs.
+    * Changed the way the templates pull information from the theme config files so that inheritance is properly supported.
+
 # v1.3.6
 ## 07/17/2018
 

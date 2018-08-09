@@ -37,6 +37,10 @@ You should now have all the theme files under
 
 ## Updating
 
+**Backwards Compatibility Alert:** *If you are updating from 1.x and have used theme inheritance to customize the theme, then you must copy the contents of your customized `knowledge-base.yaml` file into your new theme's configuration file.*
+
+*Furthermore, if you have overridden any template files, please note the following change. All instances of `config.themes['knowledge-base']` have been replaced with `grav.theme.config`.*
+
 As development for the Knowledge Base theme continues, new versions may become available that add additional features and functionality, improve compatibility with newer Grav releases, and generally provide a better user experience. Updating Knowledge Base is easy, and can be done through Grav's GPM system or manually.
 
 ### GPM Update (Preferred)
@@ -60,17 +64,13 @@ Manually updating Knowledge Base is pretty simple. Here is what you will need to
 
 ## Customizing
 
-To modify or customize this theme, you must first do two things:
+To modify or customize this theme, you must first [read and follow the documentation on theme inheritance](https://learn.getgrav.org/themes/customization#theme-inheritance). Following these instructions is the only way to ensure that your changes are not lost when the theme gets updated.
 
-1. Copy `user/themes/knowledge-base/knowledge-base.yaml` to `/user/config/themes/knowledge-base.yaml`.
-
-2. [Read and follow the documentation on theme inheritance](https://learn.getgrav.org/themes/customization#theme-inheritance). 
-
-Following these instructions is the only way to ensure that your changes are not lost when the theme gets updated.
+**NOTE**: You will need to copy and paste the contents of `knowledge-base.yaml` into your newly created `<themename>.yaml`!
 
 ### Configuration
 
-This theme can be configured in two places: `user/config/themes/knowledge-base.yaml` and `user/config/site.yaml`.
+This theme can be configured in two places: `knowledge-base.yaml` and `site.yaml`.
 
 #### `knowledge-base.yaml`
 
@@ -185,7 +185,7 @@ The sample content also shows a "Contact Us" page that you will need to configur
 
 This is my first theme. Feedback and pull requests are warmly welcomed.
 
-I decided to try this after a forum post asking if such a template already existed. The poster linked to [a theme called "knowhow" by Hero Themes](http://demo.herothemes.com/#knowhow). That theme inspired this one, but this one was coded completely from scratch with no reference to the original.
+I decided to try this after a forum post asking if such a template already existed. The poster linked to [a theme called "knowhow" by Hero Themes](http://demo.herothemes.com/#knowhow). That theme inspired this one, but this one was coded completely from scratch with no reference to the original code.
 
 
 

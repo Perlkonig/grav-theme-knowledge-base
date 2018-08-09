@@ -1,7 +1,7 @@
 {% set catlist = taxonomy.taxonomy["category"]|keys %}
 {% set blist = [] %}
-{% if config.themes['knowledge-base'].params.articles.blacklist is defined %}
-    {% set blist = config.themes['knowledge-base'].params.articles.blacklist %}
+{% if grav.theme.config.params.articles.blacklist is defined %}
+    {% set blist = grav.theme.config.params.articles.blacklist %}
     {% set tmplst = [] %}
     {% for cat in catlist %}
         {% if cat not in blist %}
@@ -12,14 +12,14 @@
 {% endif %}
 
 {% set homeroute = '/home' %}
-{% if config.themes['knowledge-base'].params.articleroot is defined %}
-    {% set homeroute = config.themes['knowledge-base'].params.articleroot %}
+{% if grav.theme.config.params.articleroot is defined %}
+    {% set homeroute = grav.theme.config.params.articleroot %}
 {% endif %}
-{% if config.themes['knowledge-base'].params.articles.root is defined %}
-    {% set homeroute = config.themes['knowledge-base'].params.articles.root %}
+{% if grav.theme.config.params.articles.root is defined %}
+    {% set homeroute = grav.theme.config.params.articles.root %}
 {% endif %}
 
-{% if config.themes['knowledge-base'].params.sidebar.show.categories %}
+{% if grav.theme.config.params.sidebar.show.categories %}
 <div>
     <h1><span>{{ 'CATEGORIES'|t }}</span></h1>
     <ul style="padding-left: 1rem">
@@ -31,11 +31,11 @@
 {% endif %}
 
 {% set maxcount = 5 %}
-{% if config.themes['knowledge-base'].params.sidebar.maxentries is defined %}
-    {% set maxcount = config.themes['knowledge-base'].params.sidebar.maxentries %}
+{% if grav.theme.config.params.sidebar.maxentries is defined %}
+    {% set maxcount = grav.theme.config.params.sidebar.maxentries %}
 {% endif %}
 
-{% if config.themes['knowledge-base'].params.sidebar.show.popular %}
+{% if grav.theme.config.params.sidebar.show.popular %}
 <div class="topiclist">
 	{% set counts = viewcounts|sort|reverse %}
 	{% set popular = [] %}
@@ -65,7 +65,7 @@
 </div>
 {% endif %}
 
-{% if config.themes['knowledge-base'].params.sidebar.show.latest %}
+{% if grav.theme.config.params.sidebar.show.latest %}
 <div class="topiclist">
 	<h1><span>{{ 'LATEST_ARTICLES'|t }}</span></h1>
     {% set articles = page.find(homeroute).children.order('date', 'desc') %}
