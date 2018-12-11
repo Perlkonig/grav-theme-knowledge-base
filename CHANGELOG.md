@@ -4,6 +4,9 @@
 1. [](#new)
     * French translation added, thanks to @TheFlighteur.
 
+1. [](#bugfix)
+    * Fixed a dropdown bug, thanks to @Lipository.
+
 # v2.0.0
 ## 08/09/2018
 

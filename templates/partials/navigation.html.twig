@@ -23,7 +23,7 @@
 {% endmacro %}
 
 <ul class="pure-menu-list">
-    {% if grav.config.theme.dropdown.enabled %}
+    {% if grav.theme.config.dropdown.enabled %}
         {{ _self.loop(pages) }}
     {% else %}
         {% for page in pages.children.visible %}
