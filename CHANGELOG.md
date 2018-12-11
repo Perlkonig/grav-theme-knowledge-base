@@ -1,3 +1,9 @@
+# v2.0.1
+## 12/11/2018
+
+1. [](#new)
+    * French translation added, thanks to @TheFlighteur.
+
 # v2.0.0
 ## 08/09/2018
 
