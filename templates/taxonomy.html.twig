@@ -29,7 +29,14 @@
                     <h1>Categories</h1>
                     <ul>
                     {% for cat in catlist|sort %}
-                        <li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
+                        {# Check to see if a dedicated category page exists #}
+                        {% set slug = cat|hyphenize|url_encode %}
+                        {% set p = page.find('/categories/'~slug) %}
+                        {% if p == null %}
+                                <li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
+                        {% else %}
+                                <li><a href="{{ base_url }}/categories/{{slug}}">{{ cat }}</a></li>
+                        {% endif %}
                     {% endfor %}
                     </ul>
                 </section>
