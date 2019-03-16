@@ -2,11 +2,12 @@
 ## 03/16/2019
 
 1. [](#new)
-    * Categories can now have landing pages like authors do (optional), thanks again to @awrog.
+    * Categories can now have landing pages like authors do (optional), thanks to @awrog.
     * Duth translation added, thanks to @awrog.
 
 1. [](#bugfix)
     * Comments section hidden if `comments` plugin not present.
+    * The "Latest Articles" list now finds all articles regardless of folder structure.
 
 # v2.0.1
 ## 12/11/2018

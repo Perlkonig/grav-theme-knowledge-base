@@ -1,3 +1,14 @@
+{% set homeroute = '/home' %}
+{% if grav.theme.config.params.articleroot is defined %}
+    {% set homeroute = grav.theme.config.params.articleroot %}
+{% endif %}
+{% if grav.theme.config.params.articles.root is defined %}
+    {% set homeroute = grav.theme.config.params.articles.root %}
+{% endif %}
+
+{% set options = { items: {'@page.descendants': homeroute}, 'order': {'by': 'date', 'dir': 'desc'}} %}
+{% set my_collection = page.collection(options) %}
+
 {% set catlist = taxonomy.taxonomy["category"]|keys %}
 {% set blist = [] %}
 {% if grav.theme.config.params.articles.blacklist is defined %}
@@ -9,14 +20,6 @@
         {% endif %}
     {% endfor %}
     {% set catlist = tmplst %}
-{% endif %}
-
-{% set homeroute = '/home' %}
-{% if grav.theme.config.params.articleroot is defined %}
-    {% set homeroute = grav.theme.config.params.articleroot %}
-{% endif %}
-{% if grav.theme.config.params.articles.root is defined %}
-    {% set homeroute = grav.theme.config.params.articles.root %}
 {% endif %}
 
 {% if grav.theme.config.params.sidebar.show.categories %}
@@ -75,9 +78,8 @@
 {% if grav.theme.config.params.sidebar.show.latest %}
 <div class="topiclist">
 	<h1><span>{{ 'LATEST_ARTICLES'|t }}</span></h1>
-    {% set articles = page.find(homeroute).children.order('date', 'desc') %}
     {% set tmplst = [] %}
-    {% for page in articles %}
+    {% for page in my_collection %}
         {% set blisted = false %}
         {% for bcat in blist %}
           {% if bcat in page.taxonomy["category"] or (page.header.published is defined and not page.header.published) %}
