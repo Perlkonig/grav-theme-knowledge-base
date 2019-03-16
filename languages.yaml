@@ -82,3 +82,15 @@ gl:
     RELATED_ARTICLES: Artigos relacionados
     COMMENTS: Comentarios
     CATEGORY: "Categoría:"
+nl:
+    FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">Dit thema</a> was <i class="fa fa-code"></i> met <i class="fa fa-heart"></i> door <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
+    CATEGORIES: Categorieën
+    POPULAR_ARTICLES: Populaire artikelen
+    LATEST_ARTICLES: Recente artikelen
+    AUTHOR: "Auteur:"
+    ALL_AUTHOR_POSTS: Alle artikelen van deze auteur
+    ERROR: Fout!
+    ARTICLE_CATEGORIES: Artikelcategorieën
+    RELATED_ARTICLES: Zie ook
+    COMMENTS: Commentaren
+    CATEGORY: "Categorie:"

@@ -68,8 +68,10 @@
     	</div>
 		{% endif %}    		
     </section>
-    <section class="comments">
-    	<h2>{{ 'COMMENTS'|t }}</h2>
-    </section>
+    {% if config.plugins.comments.enabled %}
+        <section class="comments">
+    	    <h2>{{ 'COMMENTS'|t }}</h2>
+        </section>
+    {% endif %}
 </article>
 {% endblock %}
