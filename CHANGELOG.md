@@ -6,7 +6,7 @@
     * Duth translation added, thanks to @awrog.
 
 1. [](#bugfix)
-    * Comments section hidden if `comments` plugin no present
+    * Comments section hidden if `comments` plugin not present.
 
 # v2.0.1
 ## 12/11/2018
