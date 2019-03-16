@@ -1,3 +1,13 @@
+# v2.1.0
+## 03/16/2019
+
+1. [](#new)
+    * Categories can now have landing pages like authors do (optional), thanks again to @awrog.
+    * Duth translation added, thanks to @awrog.
+
+1. [](#bugfix)
+    * Comments section hidden if `comments` plugin no present
+
 # v2.0.1
 ## 12/11/2018
 

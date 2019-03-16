@@ -1,0 +1,40 @@
+{% set blist = [] %}
+{% if grav.theme.config.params.articles.blacklist is defined %}
+    {% set blist = grav.theme.config.params.articles.blacklist %}
+    {% set tmplst = [] %}
+    {% for cat in catlist %}
+        {% if cat not in blist %}
+            {% set tmplst = tmplst|merge([cat]) %}
+        {% endif %}
+    {% endfor %}
+    {% set catlist = tmplst %}
+{% endif %}
+
+{% set pages = taxonomy.findTaxonomy({'category': category}).order('date', 'desc') %}
+{% set tmplst = [] %}
+{% for page in pages %}
+    {% set blisted = false %}
+    {% for bcat in blist %}
+        {% if bcat in page.taxonomy["category"] %}
+            {% set blisted = true %}
+        {% endif %}
+    {% endfor %}
+    {% if not blisted %}
+        {% set tmplst = tmplst|merge([page]) %}
+    {% endif %}
+{% endfor %}
+{% set pages = tmplst|slice(0,maxcount) %}
+
+<section class="topiclist">
+    <ul>
+    {% for p in pages %}
+        {% if p.header.media == 'video' %}
+        <li class="video">
+        {% else %}
+        <li class="text">
+        {% endif %}
+            <a href="{{p.url}}">{{ p.title|e }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</section>

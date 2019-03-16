@@ -4,8 +4,8 @@
 	<h1>{{ 'CATEGORY'|t }} {{ page.header.category }}</h1>
 	{{ page.content }}	
 
-	<h2>{{ 'ARTICLE_CATEGORIES'|t }}</h2>
-	{% include 'partials/frontlist.html.twig' with {'category': page.header.category} %}
+	<h2>{{ 'RELATED_ARTICLES'|t }}</h2>
+	{% include 'partials/categoryposts.html.twig' with {'category': page.header.category} %}
 {% endblock %}
 
 
