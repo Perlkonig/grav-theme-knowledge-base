@@ -45,10 +45,12 @@
 	</section>
 	<section class="content">
     	{{ page.content }}
+	{% if not page.header.hide_mediasummary %}		
         <p></p>
         {% for image in page.media.images %}
            {{ image.cropResize(700, 400).html("title", "alt", "itemscreenshot") }}
         {% endfor %}
+	{% endif %}
 
     </section>
     <section class="foot">

@@ -1,3 +1,9 @@
+# v2.1.1
+## 07/30/2020
+
+1. [](#new)
+    * If you reference media in the page content directly, then you may not want that media resummarized at the end of the post. You can now set a page header named `hide_mediasummary` to suppress the summary for that page.
+
 # v2.1.0
 ## 03/16/2019
 
