@@ -1,9 +1,9 @@
 {% set homeroute = '/home' %}
 {% if grav.theme.config.params.articleroot is defined %}
-    {% set homeroute = grav.theme.config.params.articleroot %}
+	{% set homeroute = grav.theme.config.params.articleroot %}
 {% endif %}
 {% if grav.theme.config.params.articles.root is defined %}
-    {% set homeroute = grav.theme.config.params.articles.root %}
+	{% set homeroute = grav.theme.config.params.articles.root %}
 {% endif %}
 
 {% set options = { items: {'@page.descendants': homeroute}, 'order': {'by': 'date', 'dir': 'desc'}} %}
@@ -12,37 +12,37 @@
 {% set catlist = taxonomy.taxonomy["category"]|keys %}
 {% set blist = [] %}
 {% if grav.theme.config.params.articles.blacklist is defined %}
-    {% set blist = grav.theme.config.params.articles.blacklist %}
-    {% set tmplst = [] %}
-    {% for cat in catlist %}
-        {% if cat not in blist %}
-            {% set tmplst = tmplst|merge([cat]) %}
-        {% endif %}
-    {% endfor %}
-    {% set catlist = tmplst %}
+	{% set blist = grav.theme.config.params.articles.blacklist %}
+	{% set tmplst = [] %}
+	{% for cat in catlist %}
+		{% if cat not in blist %}
+			{% set tmplst = tmplst|merge([cat]) %}
+		{% endif %}
+	{% endfor %}
+	{% set catlist = tmplst %}
 {% endif %}
 
 {% if grav.theme.config.params.sidebar.show.categories %}
 <div>
-    <h1><span>{{ 'CATEGORIES'|t }}</span></h1>
-    <ul style="padding-left: 1rem">
-    {% for cat in catlist|sort %}
-        {# Check to see if a dedicated category page exists #}
-        {% set slug = cat|hyphenize|url_encode %}
-        {% set p = page.find('/categories/'~slug) %}
-        {% if p == null %}
-                <li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
-        {% else %}
-                <li><a href="{{ base_url }}/categories/{{slug}}">{{ cat }}</a></li>
-        {% endif %}
-    {% endfor %}
-    </ul>
+	<h1><span>{{ 'CATEGORIES'|t }}</span></h1>
+	<ul style="padding-left: 1rem">
+	{% for cat in catlist|sort %}
+		{# Check to see if a dedicated category page exists #}
+		{% set slug = cat|hyphenize|url_encode %}
+		{% set p = page.find('/categories/'~slug) %}
+		{% if p == null %}
+				<li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
+		{% else %}
+				<li><a href="{{ base_url }}/categories/{{slug}}">{{ cat }}</a></li>
+		{% endif %}
+	{% endfor %}
+	</ul>
 </div>
 {% endif %}
 
 {% set maxcount = 5 %}
 {% if grav.theme.config.params.sidebar.maxentries is defined %}
-    {% set maxcount = grav.theme.config.params.sidebar.maxentries %}
+	{% set maxcount = grav.theme.config.params.sidebar.maxentries %}
 {% endif %}
 
 {% if grav.theme.config.params.sidebar.show.popular %}
@@ -51,47 +51,47 @@
 	{% set popular = [] %}
 	{% for route,views in counts %}
 		{% if route starts with homeroute %}
-            {% set thispage = page.find(route) %}
-            {% if thispage is not null %}
-			    {% set popular = popular|merge([thispage]) %}
-            {% endif %}
+			{% set thispage = page.find(route) %}
+			{% if thispage is not null %}
+				{% set popular = popular|merge([thispage]) %}
+			{% endif %}
 		{% endif %}
 	{% endfor %}
-    {% set tmplst = [] %}
-    {% for page in popular %}
-        {% set blisted = false %}
-        {% for bcat in blist %}
-            {% if bcat in page.taxonomy["category"] %}
-                {% set blisted = true %}
-            {% endif %}
-        {% endfor %}
-        {% if not blisted %}
-            {% set tmplst = tmplst|merge([page]) %}
-        {% endif %}
-    {% endfor %}
-    {% set popular = tmplst %}
+	{% set tmplst = [] %}
+	{% for page in popular %}
+		{% set blisted = false %}
+		{% for bcat in blist %}
+			{% if bcat in page.taxonomy["category"] %}
+				{% set blisted = true %}
+			{% endif %}
+		{% endfor %}
+		{% if not blisted %}
+			{% set tmplst = tmplst|merge([page]) %}
+		{% endif %}
+	{% endfor %}
+	{% set popular = tmplst %}
 	<h1><span>{{ 'POPULAR_ARTICLES'|t }}</span></h1>
-    {% include 'partials/topiclist.html.twig' with {'articles': popular, 'maxcount': maxcount} %}
+	{% include 'partials/topiclist.html.twig' with {'articles': popular, 'maxcount': maxcount} %}
 </div>
 {% endif %}
 
 {% if grav.theme.config.params.sidebar.show.latest %}
 <div class="topiclist">
 	<h1><span>{{ 'LATEST_ARTICLES'|t }}</span></h1>
-    {% set tmplst = [] %}
-    {% for page in my_collection %}
-        {% set blisted = false %}
-        {% for bcat in blist %}
-          {% if bcat in page.taxonomy["category"] or (page.header.published is defined and not page.header.published) %}
-          {# Setting this to blacklisted when the category is in the blacklist OR if the page isn't yet published #}
-            {% set blisted = true %}
-          {% endif %}
-        {% endfor %}
-        {% if not blisted %}
-            {% set tmplst = tmplst|merge([page]) %}
-        {% endif %}
-    {% endfor %}
-    {% set articles = tmplst|slice(0,maxcount) %}
-    {% include 'partials/topiclist.html.twig' with {'articles': articles, 'maxcount': maxcount} %}
+	{% set tmplst = [] %}
+	{% for page in my_collection %}
+		{% set blisted = false %}
+		{% for bcat in blist %}
+		{% if bcat in page.taxonomy["category"] or (page.header.published is defined and not page.header.published) %}
+		{# Setting this to blacklisted when the category is in the blacklist OR if the page isn't yet published #}
+			{% set blisted = true %}
+		{% endif %}
+		{% endfor %}
+		{% if not blisted %}
+			{% set tmplst = tmplst|merge([page]) %}
+		{% endif %}
+	{% endfor %}
+	{% set articles = tmplst|slice(0,maxcount) %}
+	{% include 'partials/topiclist.html.twig' with {'articles': articles, 'maxcount': maxcount} %}
 </div>
 {% endif %}
