@@ -2,92 +2,91 @@
 
 {% block content %}
 
-{% set catlist = taxonomy.taxonomy["category"]|keys %}
-{% if grav.theme.config.params.articles.blacklist is defined %}
-    {% set blist = grav.theme.config.params.articles.blacklist %}
-    {% set tmplst = [] %}
-    {% for cat in catlist %}
-        {% if cat not in blist %}
-            {% set tmplst = tmplst|merge([cat]) %}
-        {% endif %}
-    {% endfor %}
-    {% set catlist = tmplst %}
-{% endif %}
+	{% set catlist = taxonomy.taxonomy["category"]|keys %}
+	{% if grav.theme.config.params.articles.blacklist is defined %}
+		{% set blist = grav.theme.config.params.articles.blacklist %}
+		{% set tmplst = [] %}
+		{% for cat in catlist %}
+			{% if cat not in blist %}
+				{% set tmplst = tmplst|merge([cat]) %}
+			{% endif %}
+		{% endfor %}
+		{% set catlist = tmplst %}
+	{% endif %}
 
-    {% set taxname = uri.query('name') %}
-    {% set taxval = uri.query('val') %}
+	{% set taxname = uri.query('name') %}
+	{% set taxval = uri.query('val') %}
 
-    {% if taxname %}
-        {% if taxname == 'category' %}
-            {% if taxval %}
-                <section class="topiclist">
-                    <h1>{{ 'CATEGORY'|t }} {{ taxval }}</h1>
-                    {% include 'partials/topiclist.html.twig' with {'articles': taxonomy.findTaxonomy({(taxname): taxval})} %}
-                </section>
-            {% else %}
-                <section>
-                    <h1>Categories</h1>
-                    <ul>
-                    {% for cat in catlist|sort %}
-                        {# Check to see if a dedicated category page exists #}
-                        {% set slug = cat|hyphenize|url_encode %}
-                        {% set p = page.find('/categories/'~slug) %}
-                        {% if p == null %}
-                                <li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
-                        {% else %}
-                                <li><a href="{{ base_url }}/categories/{{slug}}">{{ cat }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                    </ul>
-                </section>
-            {% endif %}
-        {% elseif taxname == 'tag' %}
-            {% if taxval %}
-                <section class="topiclist">
-                    <h1>Tag: {{ taxval }}</h1>
-                    {% include 'partials/topiclist.html.twig' with {'articles': taxonomy.findTaxonomy({(taxname): taxval})} %}
-                </section>
-            {% else %}
-                <section>
-                    <h1>Tags</h1>
-                    <ul>
-                    {% for tag in taxonomy.taxonomy["tag"]|keys|sort %}
-                        <li><a href="{{ base_url }}/taxonomy?name=tag&amp;val={{ tag|url_encode }}">{{ tag }}</a></li>
-                    {% endfor %}
-                    </ul>
-            {% endif %}
-        {% elseif taxname == 'author' %}
-            {% if taxval %}
-                <section class="topiclist">
-                    <h1>Author: {{ taxval }}</h1>
-                    {% include 'partials/topiclist.html.twig' with {'articles': taxonomy.findTaxonomy({(taxname): taxval})} %}
-                </section>
-            {% else %}
-                <section>
-                    <h1>Authors</h1>
-                    <ul>
-                    {% for author in taxonomy.taxonomy["author"]|keys|sort %}
-                        {# Check to see if a dedicated author page exists #}
-                        {% set slug = author|hyphenize|url_encode %}
-                        {% set p = page.find('/authors/'~slug) %}
-                        {% if p == null %}
-                            <li><a href="{{ base_url }}/taxonomy?name=author&amp;val={{ author|url_encode }}">{{ author }}</a></li>
-                        {% else %}
-                            <li><a href="{{ base_url }}/authors/{{slug}}">{{ author }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                    </ul>
-            {% endif %}
-        {% endif %}
-    {% else %}
-        <section>
-            <h1>Taxonomies</h1>
-            <ul>
-                <li><a href="{{ page.url }}?name=category">Categories</a></li>
-                <li><a href="{{ page.url }}?name=tag">Tags</a></li>
-                <li><a href="{{ page.url }}?name=author">Authors</a></li>
-            </ul>
-        </section>
-    {% endif %}
+	{% if taxname %}
+		{% if taxname == 'category' %}
+			{% if taxval %}
+				<section class="topiclist">
+					<h1>{{ 'CATEGORY'|t }} {{ taxval }}</h1>
+					{% include 'partials/topiclist.html.twig' with {'articles': taxonomy.findTaxonomy({(taxname): taxval})} %}
+				</section>
+			{% else %}
+				<section>
+					<h1>Categories</h1>
+					<ul>
+					{% for cat in catlist|sort %}
+						{# Check to see if a dedicated category page exists #}
+						{% set slug = cat|hyphenize|url_encode %}
+						{% set p = page.find('/categories/'~slug) %}
+						{% if p == null %}
+								<li><a href="{{ base_url }}/taxonomy?name=category&amp;val={{ cat|url_encode }}">{{ cat }}</a></li>
+						{% else %}
+								<li><a href="{{ base_url }}/categories/{{slug}}">{{ cat }}</a></li>
+						{% endif %}
+					{% endfor %}
+					</ul>
+				</section>
+			{% endif %}
+		{% elseif taxname == 'tag' %}
+			{% if taxval %}
+				<section class="topiclist">
+					<h1>Tag: {{ taxval }}</h1>
+					{% include 'partials/topiclist.html.twig' with {'articles': taxonomy.findTaxonomy({(taxname): taxval})} %}
+				</section>
+			{% else %}
+				<section>
+					<h1>Tags</h1>
+					<ul>
+					{% for tag in taxonomy.taxonomy["tag"]|keys|sort %}
+						<li><a href="{{ base_url }}/taxonomy?name=tag&amp;val={{ tag|url_encode }}">{{ tag }}</a></li>
+					{% endfor %}
+					</ul>
+			{% endif %}
+		{% elseif taxname == 'author' %}
+			{% if taxval %}
+				<section class="topiclist">
+					<h1>Author: {{ taxval }}</h1>
+					{% include 'partials/topiclist.html.twig' with {'articles': taxonomy.findTaxonomy({(taxname): taxval})} %}
+				</section>
+			{% else %}
+				<section>
+					<h1>Authors</h1>
+					<ul>
+					{% for author in taxonomy.taxonomy["author"]|keys|sort %}
+						{# Check to see if a dedicated author page exists #}
+						{% set slug = author|hyphenize|url_encode %}
+						{% set p = page.find('/authors/'~slug) %}
+						{% if p == null %}
+							<li><a href="{{ base_url }}/taxonomy?name=author&amp;val={{ author|url_encode }}">{{ author }}</a></li>
+						{% else %}
+							<li><a href="{{ base_url }}/authors/{{slug}}">{{ author }}</a></li>
+						{% endif %}
+					{% endfor %}
+					</ul>
+			{% endif %}
+		{% endif %}
+	{% else %}
+		<section>
+			<h1>Taxonomies</h1>
+			<ul>
+				<li><a href="{{ page.url }}?name=category">Categories</a></li>
+				<li><a href="{{ page.url }}?name=tag">Tags</a></li>
+				<li><a href="{{ page.url }}?name=author">Authors</a></li>
+			</ul>
+		</section>
+	{% endif %}
 {% endblock %}
-
