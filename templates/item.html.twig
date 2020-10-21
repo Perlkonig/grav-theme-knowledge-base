@@ -14,7 +14,7 @@
 	{% if (grav.theme.config.params.articles.show.date) or (grav.theme.config.params.articles.show.authors) or (grav.theme.config.params.articles.show.topics) or (grav.theme.config.params.articles.show.time) %}
 		<div class="details">
 		{% if grav.theme.config.params.articles.show.date %}
-			<span>{{ page.date|date("F j, Y") }}</span>
+			<span>{{ page.date|date(system.pages.dateformat.default) }}</span>
 		{% endif %}
 		{% if grav.theme.config.params.articles.show.authors %}
 			{% set authorlist = [] %}
