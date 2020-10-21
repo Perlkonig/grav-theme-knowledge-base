@@ -10,6 +10,8 @@ en:
     RELATED_ARTICLES: Related Articles
     COMMENTS: Comments
     CATEGORY: "Category:"
+    GIT_PAGE_EDIT: "Edit this page"
+    GIT_PAGE_HISTORY: "View history"
 fr:
     FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">Ce thème</a> à été <i class="fa fa-code"></i> avec <i class="fa fa-heart"></i> par <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
     CATEGORIES: Catégories
@@ -22,6 +24,8 @@ fr:
     RELATED_ARTICLES: Articles similaires
     COMMENTS: Commentaires
     CATEGORY: "Catégorie : "
+    GIT_PAGE_EDIT: "Editer cette page"
+    GIT_PAGE_HISTORY: "Voir l'historique"
 cs:
     FOOTER_TEXT: <p><a href="https://github.com/Perlkonig/grav-theme-knowledge-base">Tento motiv</a> byl <i class="fa fa-code"></i>-án s <i class="fa fa-heart"></i> uživatelem <a href="http://perlkonig.com">Perlk&ouml;nig</a>.</p>
     CATEGORIES: Kategorie

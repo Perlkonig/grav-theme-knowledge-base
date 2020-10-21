@@ -40,6 +40,12 @@
 		{% if grav.theme.config.params.articles.show.time %}
 			<span>{{ page.content|readingtime }}</span>
 		{% endif %}
+		{% if grav.theme.config.params.articles.git.tree %}
+			<span>{% include 'partials/git_edit_link.html.twig' %}</span>
+		{% endif %}
+		{% if grav.theme.config.params.articles.git.commits %}
+			<span>{% include 'partials/git_history_link.html.twig' %}</span>
+		{% endif %}
 		</div>
 	{% endif %}
 	</section>

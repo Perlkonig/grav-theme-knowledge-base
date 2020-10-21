@@ -11,6 +11,9 @@ params:
       authors: true   # show article authors in the article header
       topics: true    # show assigned topics in the article header
       time: true      # show reading time in the article header
+    git:
+      tree: https://github.com/Perlkonig/grav-skeleton-knowledge-base/blob/master/ 
+      commits: https://github.com/Perlkonig/grav-skeleton-knowledge-base/commits/master/
   front:              # params for the front page content
     maxrows: 3        # the maximum number of rows on the front page
     maxentries: 5     # maximum number of articles displayed for each category
