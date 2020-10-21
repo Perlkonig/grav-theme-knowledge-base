@@ -3,7 +3,7 @@
 	{% set showsidebar = true %}
 {% endif %}
 <!DOCTYPE html>
-<html lang="{{ grav.language.getActive ?: grav.theme.config.default_lang }}">
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
 <head>
 {% block head %}
 	<meta charset="utf-8" />
