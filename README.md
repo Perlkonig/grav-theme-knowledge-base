@@ -1,5 +1,7 @@
 # Knowledge Base Theme
 
+***Abandonment Notice:** I'm afraid I simply don't have the time to maintain my Grav themes and plugins. Those interested in taking over should refer to the ["Abandoned Resource Protocol"](https://learn.getgrav.org/17/advanced/grav-development#abandoned-resource-protoc). Feel free to fork and replace. So long, and thanks for all the fish.*
+
 ![](screenshot.jpg)
 
 This is a basic theme for a knowledge base for [Grav CMS](http://getgrav.org). It is minimal by design and is easy to customize. It is based on [Yahoo's Pure.css framework](http://purecss.io/).
